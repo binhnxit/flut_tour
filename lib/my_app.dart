@@ -1,0 +1,70 @@
+
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fluttour/generated/l10n.dart';
+import 'package:fluttour/pages/home/home_provider.dart';
+import 'package:fluttour/services/app/app_dialog.dart';
+import 'package:fluttour/services/app/locale_provider.dart';
+import 'package:fluttour/utils/app_route.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+Future<void> myMain() async {
+  /// Start services later
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// Force portrait mode
+  await SystemChrome.setPreferredOrientations(
+      <DeviceOrientation>[DeviceOrientation.portraitUp]);
+
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<AppRoute>(create: (_) => AppRoute()),
+        Provider<AppDialogProvider>(create: (_) => AppDialogProvider()),
+        ChangeNotifierProvider<HomeProvider>(
+            create: (_) => HomeProvider()
+        ),
+        ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider()),
+      ],
+      child: const MyApp())
+  );
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppRoute appRoute = context.watch<AppRoute>();
+    final LocaleProvider localeProvider = context.watch<LocaleProvider>();
+
+    return MaterialApp(
+      navigatorKey: appRoute.navigatorKey,
+      locale: localeProvider.locale,
+      supportedLocales: S.delegate.supportedLocales,
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoute.routeRoot,
+      onGenerateRoute: appRoute.generateRoute,
+      theme: ThemeData(),
+      navigatorObservers: <NavigatorObserver>[appRoute.routeObserver],
+    );
+  }
+}

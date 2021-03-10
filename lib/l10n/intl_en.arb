@@ -1,0 +1,14 @@
+{
+  "hello": "hello",
+  "@hello": {
+    "description": "Hello someone",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "home",
+  "@home": {
+    "description": "Home Page",
+    "type": "text",
+    "placeholders": {}
+  }
+}

@@ -2,6 +2,14 @@
 
 A new Flutter project.
 
+
+## `pub get` before you Flutter
+
+- Run command to generate native resources
+```
+flutter pub get
+```
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

@@ -2,12 +2,15 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttour/generated/l10n.dart';
+import 'package:fluttour/pages/collection_grid/collection_grid_provider.dart';
 import 'package:fluttour/pages/home/home_provider.dart';
+import 'package:fluttour/pages/layout_state/layout_state_provider.dart';
 import 'package:fluttour/services/app/app_dialog.dart';
 import 'package:fluttour/services/app/locale_provider.dart';
 import 'package:fluttour/utils/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 Future<void> myMain() async {
   /// Start services later
@@ -19,11 +22,17 @@ Future<void> myMain() async {
 
   runApp(
     MultiProvider(
-      providers: [
+      providers: <SingleChildWidget>[
         Provider<AppRoute>(create: (_) => AppRoute()),
         Provider<AppDialogProvider>(create: (_) => AppDialogProvider()),
         ChangeNotifierProvider<HomeProvider>(
             create: (_) => HomeProvider()
+        ),
+        ChangeNotifierProvider<LayoutStateProvider>(
+            create: (_) => LayoutStateProvider()
+        ),
+        ChangeNotifierProvider<CollectionGridProvider>(
+            create: (_) => CollectionGridProvider()
         ),
         ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider()),
       ],

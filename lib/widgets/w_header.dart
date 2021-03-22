@@ -7,7 +7,7 @@ import 'package:fluttour/utils/app_extension.dart';
 import 'package:fluttour/utils/app_style.dart';
 import 'package:fluttour/utils/app_route.dart';
 
-mixin WHeaderDelegate {
+mixin HeaderDelegate {
   void onBack();
 }
 
@@ -20,7 +20,7 @@ class WHeader extends StatelessWidget with DynamicSize {
   final String title;
   final Color bgColor;
   final bool isShowBackButton;
-  final WHeaderDelegate delegate;
+  final HeaderDelegate delegate;
 
   //#region BUILD
   //-------------------

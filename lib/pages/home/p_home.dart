@@ -10,6 +10,7 @@ import 'package:fluttour/widgets/p_material.dart';
 import 'package:fluttour/widgets/w_header.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttour/utils/app_extension.dart';
+import 'package:fluttour/utils/app_route.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -18,7 +19,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with DynamicSize, WHeaderDelegate {
+class _HomePageState extends State<HomePage> with DynamicSize, HeaderDelegate {
 
   HomeProvider _homeProvider;
 
@@ -49,7 +50,16 @@ class _HomePageState extends State<HomePage> with DynamicSize, WHeaderDelegate {
                     return ListView.builder(
                       itemCount:  data.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return WTutorialItem(tutorial: data[index]);
+                        return WTutorialItem(tutorial: data[index], onPressItem: () {
+                          switch (Tutorial.values[index]) {
+                            case Tutorial.layoutState:
+                              return context.navigator().pushNamed(AppRoute.routeLayoutState);
+                            case Tutorial.gridView:
+                              return context.navigator().pushNamed(AppRoute.routeCollectionGrid);
+                            default:
+                              return null;
+                          }
+                        },);
                       }
                     );
                   }

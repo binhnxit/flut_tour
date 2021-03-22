@@ -46,10 +46,9 @@ class _PLayoutStateState extends State<PLayoutState> {
                       ),
                       Padding(
                           padding: EdgeInsets.all(10.SP),
-                          child: TestToggle(),
-                          // child: Text(
-                          //     provider.descTitle,
-                          //     style: boldTextStyle(20, color: AppColors.black))
+                          child: Text(
+                              provider.descTitle,
+                              style: boldTextStyle(20, color: AppColors.black))
                       ),
                       SizedBox(height: 100.H),
                       Container(
@@ -84,23 +83,6 @@ class _PLayoutStateState extends State<PLayoutState> {
     ) : Padding(
       padding: EdgeInsets.all(1.SP),
       child: Image.asset(AppAssets.origin().icIdentityBack, fit: BoxFit.fitHeight,),
-    );
-  }
-}
-
-class TestToggle extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 40.H,
-      child: Center(
-        child: Switch(
-          value: true,
-          onChanged: (isselec) {
-
-          },
-        ),
-      ),
     );
   }
 }

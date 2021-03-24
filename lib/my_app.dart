@@ -1,14 +1,17 @@
-
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttour/generated/l10n.dart';
 import 'package:fluttour/pages/collection_grid/collection_grid_provider.dart';
 import 'package:fluttour/pages/home/home_provider.dart';
 import 'package:fluttour/pages/layout_state/layout_state_provider.dart';
+import 'package:fluttour/pages/tickets/tickets_provider.dart';
+import 'package:fluttour/services/api/request/ticket_request.dart';
 import 'package:fluttour/services/app/app_dialog.dart';
 import 'package:fluttour/services/app/locale_provider.dart';
+import 'package:fluttour/utils/app_credential.dart';
 import 'package:fluttour/utils/app_route.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttour/utils/app_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -24,7 +27,17 @@ Future<void> myMain() async {
     MultiProvider(
       providers: <SingleChildWidget>[
         Provider<AppRoute>(create: (_) => AppRoute()),
+        Provider<Storage>(create: (_) => StoragePreferences()),
+        ChangeNotifierProvider<Credential>(
+            create: (BuildContext context) => Credential(context.read<Storage>())
+        ),
         Provider<AppDialogProvider>(create: (_) => AppDialogProvider()),
+        ProxyProvider<Credential, TicketRequest>(
+          create: (_) => TicketRequest(),
+          update: (_, Credential credential, TicketRequest ticketRequest) {
+            return ticketRequest..token = credential.token;
+          },
+        ),
         ChangeNotifierProvider<HomeProvider>(
             create: (_) => HomeProvider()
         ),
@@ -34,6 +47,10 @@ Future<void> myMain() async {
         ChangeNotifierProvider<CollectionGridProvider>(
             create: (_) => CollectionGridProvider()
         ),
+        ChangeNotifierProvider<TicketsProvider>(
+            create: (BuildContext context) => TicketsProvider(
+              context.read<TicketRequest>()
+            )),
         ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider()),
       ],
       child: const MyApp())

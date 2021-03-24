@@ -1,5 +1,5 @@
 
-import 'package:fluttour/models/local/collection_model.dart';
+import 'package:fluttour/domain/models/collection_model.dart';
 import 'package:fluttour/services/safety/notifier_safety.dart';
 
 class CollectionGridProvider extends ChangeNotifierSafety {

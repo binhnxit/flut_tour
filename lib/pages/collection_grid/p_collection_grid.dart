@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:fluttour/models/local/collection_model.dart';
+import 'package:fluttour/domain/models/collection_model.dart';
 import 'package:fluttour/pages/collection_grid/collection_grid_provider.dart';
 import 'package:fluttour/pages/collection_grid/w_collection_item.dart';
+import 'package:fluttour/utils/app_enum.dart';
 import 'package:fluttour/utils/app_mixin.dart';
 import 'package:fluttour/widgets/p_material.dart';
 import 'package:fluttour/widgets/w_header.dart';
@@ -24,7 +25,6 @@ class _PCollectionGridState extends State<PCollectionGrid>
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       _collectionGridProvider = Provider.of<CollectionGridProvider>(context, listen: false);
       _collectionGridProvider.setupData();
-
     });
   }
 
@@ -41,7 +41,7 @@ class _PCollectionGridState extends State<PCollectionGrid>
         builder: (BuildContext context, CollectionGridProvider provider, _) {
           return Column(
             children: <Widget>[
-              WHeader(title: 'Collection / Grid', isShowBackButton: true),
+              WHeader(title: Tutorial.gridView.toString(), isShowBackButton: true),
               Expanded(
                 child: Container(
                   padding: EdgeInsets.only(left: 16.W, right: 16.W),

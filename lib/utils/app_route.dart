@@ -3,6 +3,7 @@ import 'package:fluttour/pages/collection_grid/p_collection_grid.dart';
 import 'package:fluttour/pages/home/p_home.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttour/pages/layout_state/p_layout_state.dart';
+import 'package:fluttour/pages/tickets/p_tickets.dart';
 import 'package:provider/provider.dart';
 
 class AppRoute {
@@ -22,6 +23,7 @@ class AppRoute {
   static const String routeCounter = '/counter';
   static const String routeLayoutState = '/layout_state';
   static const String routeCollectionGrid = '/collection_grid';
+  static const String routeFetchData = '/fetch_data';
 
   ///#endregion
 
@@ -46,6 +48,11 @@ class AppRoute {
         return MaterialPageRoute<dynamic>(
           settings: settings,
           builder: (_) => PCollectionGrid()
+        );
+      case routeFetchData:
+        return MaterialPageRoute<dynamic>(
+          settings: settings,
+          builder: (_) => PTickets()
         );
       case routeRoot:
       case routeHome:

@@ -27,7 +27,7 @@ class _PLayoutStateState extends State<PLayoutState> {
             child: Column(
               children: <Widget>[
                 WHeader(
-                    title: 'Layout\'s State',
+                    title: Tutorial.layoutState.toString(),
                     isShowBackButton: true,
                     bgColor: AppColors.grey),
                 Expanded(

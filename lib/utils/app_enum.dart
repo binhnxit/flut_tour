@@ -5,7 +5,7 @@ enum Tutorial {
   gridView, // CLV
   mixin, // Delegate
   updateLayout, // Reload TBV, CLV, LayoutIfNeeded
-  passData // Dependency Injection & Route
+  fetchData // Dependency Injection & Route
 }
 
 extension TutorialExtension on Tutorial {
@@ -21,8 +21,8 @@ extension TutorialExtension on Tutorial {
         return 'Protocol / Mixin';
       case Tutorial.updateLayout:
         return 'Update UI / setState';
-      case Tutorial.passData:
-        return 'Pass Data';
+      case Tutorial.fetchData:
+        return 'Fetch Data';
       default:
         return '';
     }

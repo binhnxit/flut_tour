@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:fluttour/models/local/collection_model.dart';
+import 'package:fluttour/domain/models/collection_model.dart';
 import 'package:fluttour/utils/app_color.dart';
 import 'package:fluttour/utils/app_mixin.dart';
 import 'package:fluttour/utils/app_style.dart';

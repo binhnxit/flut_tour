@@ -38,3 +38,4 @@ flutter pub get
 ```
 
 * Font
+```updating...```

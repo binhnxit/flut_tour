@@ -9,22 +9,22 @@ flutter pub get
 ```
 
 ### [Main Packages](#packages)
-  *  [Provider](https://pub.dev/packages/provider): An app state management
-  *  [dio](https://pub.dev/packages/dio): An HTTP networking library
+  *  [Provider](https://pub.dev/packages/provider): An app state management.
+  *  [dio](https://pub.dev/packages/dio): An HTTP networking library.
 
 ### [Usage](usage)
 
 #### Common steps to add a new screen
-* Create a new widget (`Stateful/Stateless` widgets)
-* Create a new `Provider` class that extends `ChangeNotifierSafety`
-* Define the screen route in [`app_route.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/utils/app_route.dart)
-* Init the `Provider` class in [`my_app.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/my_app.dart)
+* Create a new widget (`Stateful/Stateless` widgets).
+* Create a new `Provider` class that extends `ChangeNotifierSafety`.
+* Define the screen route in [`app_route.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/utils/app_route.dart).
+* Init the `Provider` class in [`my_app.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/my_app.dart).
 
 #### Add a new http request
 * Create a new request class that extends [`APIClient`](https://github.com/dubydu/flut_tour/blob/master/lib/services/api/api_client.dart) class.
 * Write a `Future` function inside the request class (*), this function must return the http Response info.
 * Inside the `Provider` class, write a `Future` function, the main responsibility of this function is call the `Future` function inside the request class (*) with specified `Duration`.
-* Handle the Response (parse data, request status code... ).
+* Handle the Response (parse data, request status code...).
 
 #### How to add assets
 

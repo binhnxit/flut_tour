@@ -24,7 +24,8 @@ flutter pub get
 
 * Icon
 ```
-Generate an icon by 1x, 2x, 3x then add these icons into `assets/icons/…` folders.
-Remember that, these icons located in a different folder (2.0x, 3.0x...) but their name must be the same
+① Generate an icon by 1x, 2x, 3x then add these icons into (assets/icons/…) folders.
+② Remember that, these icons located in a different folder (2.0x, 3.0x,...) but their name must be the same.
 ```
+
 * Font

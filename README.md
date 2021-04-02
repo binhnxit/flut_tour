@@ -20,6 +20,12 @@ flutter pub get
 * Define the screen route in `app_route.dart`
 * Init the `Provider` class in `my_app.dart`
 
+#### Add a new http request
+* Create a new request class that extends `APIClient`
+* Write a `Future` function inside the request class, this function must return the http Response info.
+* Inside the `Provider` class, write a `Future` function that calls the `Future` function inside the request class with specified `Duration`.
+* Handle the Response (parse data, request status code... ).
+
 #### How to add assets
 
 * Icon

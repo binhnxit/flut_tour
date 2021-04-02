@@ -15,7 +15,7 @@ flutter pub get
 ### [Usage](usage)
 
 #### Common steps to add a new screen
-* Create a new Widget (Stateful/Stateless widgets)
+* Create a new widget (`Stateful/Stateless` widgets)
 * Create a new `Provider` class that extends `ChangeNotifierSafety`
 * Define the screen route in `app_route.dart`
 * Init the `Provider` class in `my_app.dart`

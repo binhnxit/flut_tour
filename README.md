@@ -21,7 +21,7 @@ flutter pub get
 * Init the `Provider` class in `my_app.dart`
 
 #### Add a new http request
-* Create a new request class that extends `APIClient`(https://github.com/dubydu/flut_tour/blob/master/lib/services/api/api_client.dart)
+* Create a new request class that extends [`APIClient`](https://github.com/dubydu/flut_tour/blob/master/lib/services/api/api_client.dart)
 * Write a `Future` function inside the request class (*), this function must return the http Response info.
 * Inside the `Provider` class, write a `Future` function, the main responsibility of this function is call the `Future` function inside the request class (*) with specified `Duration`.
 * Handle the Response (parse data, request status code... ).

@@ -21,7 +21,7 @@ flutter pub get
 * Init the `Provider` class in [`my_app.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/my_app.dart).
 
 #### Config the app environment
-* Take a look in the [`app_config.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/utils/app_config.dart)
+* Take a look at the [`app_config.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/utils/app_config.dart)
 
 #### Add a new http request
 * Create a new request class that extends [`APIClient`](https://github.com/dubydu/flut_tour/blob/master/lib/services/api/api_client.dart) class.

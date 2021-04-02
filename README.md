@@ -17,8 +17,8 @@ flutter pub get
 #### Common steps to add a new screen
 * Create a new widget (`Stateful/Stateless` widgets)
 * Create a new `Provider` class that extends `ChangeNotifierSafety`
-* Define the screen route in `app_route.dart`
-* Init the `Provider` class in `my_app.dart`
+* Define the screen route in [`app_route.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/utils/app_route.dart)
+* Init the `Provider` class in [`my_app.dart`](https://github.com/dubydu/flut_tour/blob/master/lib/my_app.dart)
 
 #### Add a new http request
 * Create a new request class that extends [`APIClient`](https://github.com/dubydu/flut_tour/blob/master/lib/services/api/api_client.dart)

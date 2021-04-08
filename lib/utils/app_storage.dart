@@ -1,5 +1,4 @@
 
-import 'package:npreferences/npreferences.dart';
 
 abstract class Storage {
   /// Save data with primary data types:
@@ -18,4 +17,23 @@ class LocalStorageKey {
 
 }
 
-class StoragePreferences extends Storage with NPreferences {}
+class StoragePreferences extends Storage {
+  @override
+  Future<bool> clear() {
+    // TODO: implement clear
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<T> getData<T>(String key) {
+    // TODO: implement getData
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> saveData<T>(String key, T value) {
+    // TODO: implement saveData
+    throw UnimplementedError();
+  }
+  
+}

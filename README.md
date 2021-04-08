@@ -31,11 +31,10 @@ flutter pub get
 
 #### How to add assets
 
-* Icon
-```
-① Generate an icon into 1x, 2x and 3x, then add these icons into (assets/icons/…) folders.
-② Remember that, these icons located in a different folder (2.0x, 3.0x,...) but their name must be same.
-```
+**1 Icon
 
-* Font
-```updating...```
+* Generate an icon into 1x, 2x and 3x, then add these icons into (assets/icons/…) folders.
+* Remember that, these icons located in a different folder (2.0x, 3.0x,...) but their name must be same.
+
+**2 Font
+updating...

@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:fluttour/generated/l10n.dart';
 import 'package:fluttour/pages/home/home_provider.dart';
 import 'package:fluttour/pages/home/w_tutorial_item.dart';
+import 'package:fluttour/services/api/api_client.dart';
+import 'package:fluttour/services/api/request/ticket_request.dart';
 import 'package:fluttour/services/app/dynamic_size.dart';
 import 'package:fluttour/utils/app_color.dart';
+import 'package:fluttour/utils/app_credential.dart';
 import 'package:fluttour/utils/app_enum.dart';
 import 'package:fluttour/widgets/p_material.dart';
 import 'package:fluttour/widgets/w_header.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttour/utils/app_extension.dart';
 import 'package:fluttour/utils/app_route.dart';
@@ -22,6 +26,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with DynamicSize, HeaderDelegate {
 
   HomeProvider _homeProvider;
+  Credential _credential;
 
   @override
   void initState() {
@@ -29,6 +34,8 @@ class _HomePageState extends State<HomePage> with DynamicSize, HeaderDelegate {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       _homeProvider = Provider.of<HomeProvider>(context, listen: false);
       _homeProvider.setupData();
+
+      // await Credential().saveToken('DEMO_TOKEN_3');
     });
   }
 

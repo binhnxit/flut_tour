@@ -1,48 +1,35 @@
 import 'package:flutter/cupertino.dart';
-import 'package:fluttour/utils/app_storage.dart';
+import 'package:fluttour/utils/app_enum.dart';
+import 'package:localstorage/localstorage.dart';
 
-class Credential with ChangeNotifier {
-  Credential(this._storage);
+class Credential {
 
   // PRIVATE PROPERTIES
   // -----------------
   // Local storage
-  final Storage _storage;
+  static final Credential _singleton = Credential._internal();
 
-  String _token;
+  factory Credential() {
+    return _singleton;
+  }
+
+  Credential._internal();
+
+  final LocalStorage storage = new LocalStorage('base_key');
 
   // PUBLIC PROPERTIES
   // -----------------
-  // Get user info
-  String get token => _token;
-
-  set token(String value) {
-    _token = value;
-    isLogged = _token != null;
-    notifyListeners();
-  }
-
-  bool get isLogged {
-    return token != null;
-  }
-
-  set isLogged(bool value) {
-    notifyListeners();
-  }
-
-  // Load credential
-  Future<bool> getToken() async {
-    final String tokenRaw = await _storage.getData<String>(LocalStorageKey.userToken);
-    token = tokenRaw;
-    return token != null;
-  }
-
-  // Store credential
-  Future<bool> saveToken(String appToken) async {
-    final bool saveRes = await _storage.saveData(LocalStorageKey.userToken, appToken);
-    if (saveRes) {
-      token = appToken;
+  // Token
+  Future<String> getToken() async {
+    if (await storage.ready == true) {
+      return storage.getItem(CredentialKey.token.getKey());
     }
-    return saveRes;
+    return null;
+  }
+
+  Future<void> saveToken(String value) async {
+    if (await storage.ready == true) {
+      storage.setItem(CredentialKey.token.getKey(), value);
+    }
   }
 }

@@ -11,7 +11,6 @@ import 'package:fluttour/services/app/locale_provider.dart';
 import 'package:fluttour/utils/app_credential.dart';
 import 'package:fluttour/utils/app_route.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttour/utils/app_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -27,17 +26,8 @@ Future<void> myMain() async {
     MultiProvider(
       providers: <SingleChildWidget>[
         Provider<AppRoute>(create: (_) => AppRoute()),
-        Provider<Storage>(create: (_) => StoragePreferences()),
-        ChangeNotifierProvider<Credential>(
-            create: (BuildContext context) => Credential(context.read<Storage>())
-        ),
         Provider<AppDialogProvider>(create: (_) => AppDialogProvider()),
-        ProxyProvider<Credential, TicketRequest>(
-          create: (_) => TicketRequest(),
-          update: (_, Credential credential, TicketRequest ticketRequest) {
-            return ticketRequest..token = credential.token;
-          },
-        ),
+        Provider<TicketRequest>(create: (_) => TicketRequest()),
         ChangeNotifierProvider<HomeProvider>(
             create: (_) => HomeProvider()
         ),

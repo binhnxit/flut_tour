@@ -1,4 +1,19 @@
 
+enum CredentialKey {
+  token
+}
+
+extension CredentialKeyExtension on CredentialKey {
+  String getKey() {
+    switch (this) {
+      case CredentialKey.token:
+        return 'user_token';
+      default:
+        return '';
+    }
+  }
+}
+
 enum Tutorial {
   layoutState, // Remove - Hide/Show UI
   listView, // TBV

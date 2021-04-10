@@ -19,7 +19,5 @@ class HomeProvider extends ChangeNotifierSafety {
 
   @override
   void resetState() {
-    // TODO: implement resetState
   }
-
 }

@@ -5,6 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fluttour/utils/app_config.dart';
+import 'package:fluttour/utils/app_credential.dart';
 
 class APIClient {
   APIClient() {
@@ -31,6 +32,8 @@ class APIClient {
 
   /// Get auth header options
   Future<Options> getAuthOptions({String contentType, String urlPath}) async {
+    token = await Credential().getToken();
+    print('TOKEN: ===============> $token');
     String platform = '';
     if (Platform.isAndroid) {
       platform = 'android';

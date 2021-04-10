@@ -4,10 +4,8 @@ A minor Flutter base_source
 
 ### [Getting Started](#gettingstarted)
 
-```
- Flutter (Channel stable, 2.0.4)
- Dart 1.22.4
- ```
+* Flutter (Channel stable, 2.0.4)
+* Dart 1.22.4
 
 Run command in order to generate native resources
 ```
